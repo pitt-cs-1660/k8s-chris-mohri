@@ -87,12 +87,12 @@ spec:
         valueFrom:
           secretKeyRef:
             name: database
-            key: c3VwZXJzM2NyM3RSb290
+            key: root-password
       - name: MYSQL_PASSWORD
         valueFrom:
           secretKeyRef:
             name: database
-            key: c3VwZXJzM2NyM3Q=
+            key: user-password
         
       ports:
       - containerPort: 3306
