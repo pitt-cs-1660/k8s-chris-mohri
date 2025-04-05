@@ -63,7 +63,7 @@ spec:
       - name: my-volume
         mountPath: /var/lib/mysql
 
-        env:
+      env:
         ##
         # mount non-sensitive environment vars from configmap
         # MYSQL_DATABASE | MYSQL_USER
