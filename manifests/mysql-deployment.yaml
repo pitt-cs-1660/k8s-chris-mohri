@@ -94,9 +94,9 @@ spec:
               name: database
               key: user-password
         
-        ports:
-        - containerPort: 3306
-          name: mysql
+      ports:
+      - containerPort: 3306
+        name: mysql
 
         
       ##
