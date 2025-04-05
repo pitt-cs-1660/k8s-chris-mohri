@@ -87,7 +87,7 @@ spec:
           valueFrom:
             secretKeyRef:
               name: database
-              key: user-password
+              key: c3VwZXJzM2NyM3Q=
 
         ports:
         - containerPort: 80
