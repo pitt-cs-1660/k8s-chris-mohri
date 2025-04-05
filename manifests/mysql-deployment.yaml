@@ -59,44 +59,44 @@ spec:
         name: mysql
 
         # asdf
-      volumeMounts:
-      - name: my-volume
-        mountPath: /var/lib/mysql
+        volumeMounts:
+        - name: my-volume
+          mountPath: /var/lib/mysql
 
-      env:
-        ##
-        # mount non-sensitive environment vars from configmap
-        # MYSQL_DATABASE | MYSQL_USER
-        ##
-      - name: MYSQL_DATABASE
-        valueFrom:
-          configMapKeyRef:
-            name: wordpress-mysql
-            key: database
-      - name: MYSQL_USER
-        valueFrom:
-          configMapKeyRef:
-            name: wordpress-mysql
-            key: user
+        env:
+          ##
+          # mount non-sensitive environment vars from configmap
+          # MYSQL_DATABASE | MYSQL_USER
+          ##
+        - name: MYSQL_DATABASE
+          valueFrom:
+            configMapKeyRef:
+              name: wordpress-mysql
+              key: database
+        - name: MYSQL_USER
+          valueFrom:
+            configMapKeyRef:
+              name: wordpress-mysql
+              key: user
 
-        ##
-        # mount sensitive environment vars from secret
-        # MYSQL_ROOT_PASSWORD | MYSQL_PASSWORD
-        ##
-      - name: MYSQL_ROOT_PASSWORD
-        valueFrom:
-          secretKeyRef:
-            name: database
-            key: root-password
-      - name: MYSQL_PASSWORD
-        valueFrom:
-          secretKeyRef:
-            name: database
-            key: user-password
-        
-      ports:
-      - containerPort: 3306
-        name: mysql
+          ##
+          # mount sensitive environment vars from secret
+          # MYSQL_ROOT_PASSWORD | MYSQL_PASSWORD
+          ##
+        - name: MYSQL_ROOT_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: database
+              key: root-password
+        - name: MYSQL_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: database
+              key: user-password
+          
+        ports:
+        - containerPort: 3306
+          name: mysql
 
         
       ##
